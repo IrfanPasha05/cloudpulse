@@ -1,0 +1,20 @@
+{
+  "name": "cloudpulse",
+  "version": "1.0.0",
+  "description": "CloudPulse - a colorful, production-style AWS DevOps pipeline dashboard (GitHub -> Jenkins -> Docker -> EC2)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["devops", "aws", "jenkins", "docker", "dashboard"],
+  "author": "Irfan Pasha",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
