@@ -1,17 +1,66 @@
 pipeline {
     agent any
 
+    options {
+        timestamps()
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
     stages {
-        stage('Test EC2 SSH') {
+
+        stage('Install dependencies') {
             steps {
-                sshagent(credentials: ['ec2-ssh-key']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no \
-                            ubuntu@3.110.223.230 \
-                            "echo SSH connection successful && hostname && docker --version && docker compose version"
-                    '''
-                }
+                sh 'npm ci'
             }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t cloudpulse:latest .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh '''
+                    docker rm -f cloudpulse || true
+
+                    docker run -d \
+                        --name cloudpulse \
+                        -p 3000:3000 \
+                        cloudpulse:latest
+                '''
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh '''
+                    sleep 5
+                    curl -f http://localhost:3000/healthz
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker rm -f cloudpulse || true'
+        }
+
+        success {
+            echo 'CloudPulse CI/CD pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'CloudPulse pipeline failed.'
         }
     }
 }
