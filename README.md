@@ -16,8 +16,9 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/IrfanPasha05/cloudpulse?style=flat-square&color=2dd4bf)](https://github.com/IrfanPasha05/cloudpulse/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/IrfanPasha05/cloudpulse?style=flat-square&color=f59e0b)](https://github.com/IrfanPasha05/cloudpulse/issues)
 [![GitHub stars](https://img.shields.io/github/stars/IrfanPasha05/cloudpulse?style=flat-square&color=2dd4bf)](https://github.com/IrfanPasha05/cloudpulse/stargazers)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-2dd4bf?style=flat-square&logo=cloudflare&logoColor=white)](https://cloudpulse-live.ip-irfanpasha5.workers.dev/)
 
-[Live Demo](http://3.110.223.230:3000) · [Report Bug](https://github.com/IrfanPasha05/cloudpulse/issues) · [Request Feature](https://github.com/IrfanPasha05/cloudpulse/issues)
+[**🔴 Live Demo**](https://cloudpulse-live.ip-irfanpasha5.workers.dev/) · [Report Bug](https://github.com/IrfanPasha05/cloudpulse/issues) · [Request Feature](https://github.com/IrfanPasha05/cloudpulse/issues)
 
 </div>
 
